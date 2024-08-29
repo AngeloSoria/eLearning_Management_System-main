@@ -22,7 +22,7 @@ nav .mobile_menu {
 }
 
 nav > * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     flex: 1;
 }
 
