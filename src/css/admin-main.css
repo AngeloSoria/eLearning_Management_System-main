@@ -19,11 +19,12 @@ nav {
     padding: 10px 5%;
 
     width: 100%;
-    min-height: 50px;
+    min-height: 55px;
     max-height: 55px;
     box-sizing: border-box;
 
     position: sticky;
+    left: 0;
     top: 0;
 
     z-index: 11;
@@ -254,7 +255,7 @@ nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
     width: calc(100% - 325px);
     min-height: 90vh;
     max-height: 90vh;
-    
+
     overflow-y: auto;
     
     box-sizing: border-box;
