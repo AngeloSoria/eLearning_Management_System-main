@@ -151,7 +151,7 @@ body {
     color: var(--color-secondary);
     font-size: 1.25rem;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .modal .topTool button:has(.icon) {
