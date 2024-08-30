@@ -7,7 +7,13 @@
 </head>
 <body>
     <?php include_once('../../templates/admin/TopNav.php'); ?>
-    <?php include_once('../../templates/admin/SideNav.php'); ?>
-    Hello world!asdasd
+    <section class="main">
+        <?php include_once('../../templates/admin/SideNav.php'); ?>
+
+        <section class="main_content">
+            <!-- content here -->
+        </section>
+    </section>
+    
 </body>
 </html>
