@@ -12,10 +12,7 @@
     --color-livid-blue: #1e3799;
     --color-deep-blue: #1B1464;
     --color-black: #1e272e;
-    
     --color-yellow: #ffe68d;
-
-    /* CSS HEX */
     --white: #FEFEFEff;
     --mint-cream: #E4ECE3ff;
     --dark-spring-green: #0C7B3Dff;
@@ -28,6 +25,14 @@
     --olive-2: #ad9405;
     --cambridge-blue: #71A489ff;
     --ecru: #C1B96Eff;
+    --chigong: #d63031;
+    --red-orange: #ff3838;
+    --dorn-yellow: #fff200;
+
+    /* SYSTEM DEFAULT */
+    --def-color-alert: var(--red-orange);
+    --def-color-warning: var(--dorn-yellow);
+
 
     --btn-background-color: var(--olive);
     --btn-background-color-hover: var(--olive-2);
@@ -45,10 +50,7 @@
 
     --topnav-boxShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-    --font-primary {
-        font-family: "Montserrat", Arial, Helvetica, sans-serif;
-        font-size: 1rem;
-    }
+    --font-primary : "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 [data-bs-theme="light"] {

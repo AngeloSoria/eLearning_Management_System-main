@@ -15,13 +15,13 @@
         </section>
         <section>
             <div class="buttons">
-                <button class="nav buttons">
+                <button class="nav buttons" title="Search">
                     <span class="material-symbols-outlined">search</span>
                 </button>
-                <button class="nav buttons" id="profile_mail" onclick="return alert(1337);" aria-haspopup="true" href="/test">
+                <button class="nav buttons notif_unread_symbol" id="profile_mail" title="Mail">
                     <span class="material-symbols-outlined">mail</span>
                 </button>
-                <button class="nav buttons" id="profile_notifications">
+                <button class="nav buttons notif_unread_symbol" id="profile_notifications" title="Notifications">
                     <span class="material-symbols-outlined">notifications</span>
                 </button>
             </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="droplist">
                     <div class="content">
-                        <a href="#">Profile</a>
+                        <a href="#">My Profile</a>
                         <a href="#">Settings</a>
                         <hr>
                         <a href="#">Logout</a>
