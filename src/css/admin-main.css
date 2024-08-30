@@ -16,16 +16,15 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding: 5px 100px;
+    padding: 10px 5%;
 
     width: 100%;
-    min-height: 60px;
-    max-height: 60px;
+    min-height: 50px;
+    max-height: 55px;
     box-sizing: border-box;
 
     position: sticky;
     top: 0;
-    /* left: 0; */
 
     z-index: 11;
 }
@@ -40,7 +39,8 @@ nav > * {
 }
 
 nav .logo {
-    background-color: var(--dark-grey);
+    background-color: transparent;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -64,19 +64,21 @@ nav section:nth-child(2) {
 }
 nav section:nth-child(2) .buttons {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 nav section:nth-child(2) .buttons button{
-    padding: 5px;
+    padding: 2.5px;
     color: var(--color-black);
     background: none;
     border: none;
     position: relative;
     border-radius: 50%;
     transition: 0.15s ease;
+
+    /* outline: 1px solid red; */
 }
 nav section:nth-child(2) .buttons button span{
-    font-size: 22px;
+    font-size: 24px;
 }
 nav section:nth-child(2) .buttons button:hover{
     color: var(--viridian);
@@ -84,20 +86,20 @@ nav section:nth-child(2) .buttons button:hover{
 
 nav section:nth-child(2) .buttons button.notif_unread_symbol::before {
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: var(--def-color-alert);
     position: absolute;
-    top: 5px;
-    right: 3px;
+    top: 10%;
+    right: 2%;
     z-index: 2;
 }
 
 nav section:nth-child(2) .vertical_bar {
     width: 1px;
     height: 30px;
-    background-color: black;
+    background-color: rgba(53, 17, 17, 0.25);
 }
 
 nav section:nth-child(2) .profile_dropdown {
@@ -114,6 +116,8 @@ nav section:nth-child(2) .profile_dropdown .dropbtn {
     align-items: center;
     gap: 10px;
     padding: 5px 10px;
+
+    font-size: 0.9rem;
 
     cursor: pointer;
     transition: 0.15s ease;
@@ -189,7 +193,7 @@ nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
     background-color: white;
     max-width: 300px;
     min-width: 300px;
-    height: 100vh;
+    height: 95vh;
 
     padding: 10px 0;
     box-sizing: border-box;
@@ -248,8 +252,9 @@ nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
 .main_content {
     background-color: white;
     width: calc(100% - 325px);
-    min-height: 87vh;
+    min-height: 90vh;
     max-height: 90vh;
+    
     overflow-y: auto;
     
     box-sizing: border-box;

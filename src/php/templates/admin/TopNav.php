@@ -7,6 +7,7 @@
                 <button class="mobile_menu">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
+                
                 <a href="dashboard.php">
                     <img src="../../../img/Secondary-Logo-2.png" alt="Logo">
                 </a>
