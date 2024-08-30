@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php include_once('../../templates/admin/TopNav.php'); ?>
+    <?php include_once('../../templates/admin/SideNav.php'); ?>
     Hello world!asdasd
 </body>
 </html>

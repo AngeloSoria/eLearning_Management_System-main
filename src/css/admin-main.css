@@ -14,7 +14,11 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding: 0 50px;
+    padding: 5px 100px;
+
+    min-height: 50px;
+    max-height: 50px;
+    z-index: 11;
 }
 
 nav .mobile_menu {
@@ -33,9 +37,13 @@ nav .logo {
     align-items: center;
     gap: 20px;
 }
-
+nav .logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 nav .logo img {
-    width: 120px;
+    width: 100px;
 }
 
 nav section:nth-child(2) {
@@ -47,18 +55,25 @@ nav section:nth-child(2) {
 }
 nav section:nth-child(2) .buttons {
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 nav section:nth-child(2) .buttons button{
-    padding: 10px;
+    padding: 5px;
     color: var(--color-black);
     background: none;
     border: none;
 }
+nav section:nth-child(2) .buttons button span{
+    font-size: 22px;
+}
+nav section:nth-child(2) .buttons button:hover{
+    color: var(--viridian);
+}
+
 
 nav section:nth-child(2) .vertical_bar {
-    width: 1px;
-    height: 50px;
+    width: 1.25px;
+    height: 30px;
     background-color: black;
 }
 
@@ -70,37 +85,63 @@ nav section:nth-child(2) .profile_dropdown {
 }
 
 nav section:nth-child(2) .profile_dropdown .dropbtn {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 5px;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+nav section:nth-child(2) .profile_dropdown .dropbtn:hover {
+    background-color: #dfe6e9;
+}
+nav section:nth-child(2) .profile_dropdown .dropbtn .droplisticon {
+    /* outline: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav section:nth-child(2) .profile_dropdown .droplist {
     box-shadow: var(--topnav-boxShadow);
     background-color: white;
-    width: 200px;
+    padding: 10px;
+
+    min-width: 200px;
+
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    /* border-top: 4px solid var(--viridian); */
+    border-radius: 2px;
+
+    position: absolute;
+    top: 135%;
+    right: 0;
+    z-index: 10;
+
+    transition: opacity 0.15s ease, transform 0.15s ease;
+
+    display: none;
+}
+
+nav section:nth-child(2) .profile_dropdown .droplist .content {
+    /* outline: 1px solid red; */
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
-
-    /* border: 1px solid black; */
-    border-radius: 2px;
-    border-top: 4px solid var(--viridian);
-
-    position: absolute;
-    top: 110%;
-    right: 0;
 }
 
-nav section:nth-child(2) .profile_dropdown .droplist > a {
+nav section:nth-child(2) .profile_dropdown .droplist .content > a {
     background-color: transparent;
     color: black;
 }
 
-nav section:nth-child(2) .profile_dropdown .droplist > a:hover {
+nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
     color: var(--viridian);
 }
+
+/* Side Nav */
+
+
