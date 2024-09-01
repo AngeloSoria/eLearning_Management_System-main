@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /eLearning_Management_System-main/
+
+# Rewrite rule for the home page
+RewriteRule ^$ src/php/pages/home.php [L]
+
+# Rewrite rules for other pages
+RewriteRule ^dashboard$ src/php/pages/admin/dashboard.php [L]
