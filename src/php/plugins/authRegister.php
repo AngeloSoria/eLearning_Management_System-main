@@ -1,40 +1,62 @@
 <?php
-require_once 'DBConnection.php'; // Include the database connection
+require_once 'DBConnection.php'; // Include the database connection class
 
-// Get database connection
+// Create an instance of DBConnection
 $dbConnection = new DBConnection();
-$conn = $dbConnection->getConnection();
 
-// Check if the form was submitted
-if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password before storing it
-    $user_type = $_POST['user_type'];
-    $email = $_POST['email'];
-    $personal_email = $_POST['personal_email'];
-    $phone = $_POST['phone'];
-    $gender = $_POST['gender'];
-    $created_at = date("Y-m-d H:i:s");
+// Get the PDO connection
+$pdo = $dbConnection->getConnection();
 
-    // Insert data into the database
-    $sql = "INSERT INTO user_accounts (username, password_hash, user_type, email, personal_email, phone, gender, created_at) 
-            VALUES (:username, :password, :user_type, :email, :personal_email, :phone, :gender, :created_at)";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $userID = $_POST['userID'] ?? null;
+    $username = $_POST['username'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $phone = $_POST['phone'] ?? null;
+    $user_type = $_POST['user_type'] ?? null;
+    $first_name = $_POST['first_name'] ?? null;
+    $last_name = $_POST['last_name'] ?? null;
+    $middle_name = $_POST['middle_name'] ?? null;
+    $prefix = $_POST['prefix'] ?? null;
+    $gender = $_POST['gender'] ?? null;
+    $birth_date = $_POST['birth_date'] ?? null;
+    $created_by = "system"; // Replace with the actual creator's username
 
-    $stmt = $conn->prepare($sql);
+    // Simple validation
+    if (!$userID || !$username || !$password || !$email || !$user_type || !$first_name || !$last_name || !$birth_date) {
+        die("Error: Required fields are missing.");
+    }
 
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':user_type', $user_type);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':personal_email', $personal_email);
-    $stmt->bindParam(':phone', $phone);
-    $stmt->bindParam(':gender', $gender);
-    $stmt->bindParam(':created_at', $created_at);
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    if ($stmt->execute()) {
-        echo "Registration successful!";
-    } else {
-        echo "There was an error with the registration.";
+    try {
+        // Prepare SQL statement
+        $stmt = $pdo->prepare("
+            INSERT INTO users (user_id, username, password, email, phone, user_type, first_name, last_name, middle_name, prefix, gender, birth_date, created_by, isActive)
+            VALUES (:userID, :username, :password, :email, :phone, :user_type, :first_name, :last_name, :middle_name, :prefix, :gender, :birth_date, :created_by, 1)
+        ");
+
+        // Execute SQL statement
+        $stmt->execute([
+            'userID' => $userID,
+            'username' => $username,
+            'password' => $hashed_password,
+            'email' => $email,
+            'phone' => $phone,
+            'user_type' => $user_type,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'middle_name' => $middle_name,
+            'prefix' => $prefix,
+            'gender' => $gender,
+            'birth_date' => $birth_date,
+            'created_by' => $created_by
+        ]);
+
+        echo "User registered successfully.";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 }
 ?>

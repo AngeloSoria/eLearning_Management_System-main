@@ -1,37 +1,44 @@
 <?php
+require_once 'DBConnection.php'; // Include the database connection class
 function authenticate($username, $password) {
-    require_once 'DBConnection.php';
-
-    // Get database connection
+    require_once 'DBConnection.php'; // Include the database connection class
     $dbConnection = new DBConnection();
-    $conn = $dbConnection->getConnection();
+    $pdo = $dbConnection->getConnection();
 
-    if ($conn) {
-        // Prepare and execute SQL query to check credentials
-        $query = "SELECT password_hash FROM user_accounts WHERE username = :username";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
+    try {
+        // Prepare SQL statement to get user data
+        $stmt = $pdo->prepare("
+            SELECT user_id, password, user_type, first_name, last_name, isActive
+            FROM users
+            WHERE username = :username
+        ");
+        $stmt->execute(['username' => $username]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($stmt->rowCount() > 0) {
-            // Fetch the user data
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $hashed_password = $user['password_hash'];
-
-            // Verify the password using password_verify()
-            if (password_verify($password, $hashed_password)) {
-                // Password is correct, return success
-                return true;
+        // Check if user exists and if password is correct
+        if ($user && password_verify($password, $user['password'])) {
+            if ($user['isActive']) {
+                // Start a session and store user information
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['user_type'] = $user['user_type'];
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['last_name'] = $user['last_name'];
+                
+                // Redirect based on user type
+                if ($user['user_type'] === 'SuperAdmin') {
+                    header("Location: ../pages/admin/dashboard.php");
+                } else {
+                    echo "Access Denied.";
+                }
+                exit;
             } else {
-                // Incorrect password
-                return "Invalid username or password. Please try again.";
+                echo "Account is inactive.";
             }
         } else {
-            // Username not found
-            return "Invalid username or password. Please try again.";
+            echo "Invalid username or password.";
         }
-    } else {
-        return "Database connection error.";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 }
 ?>

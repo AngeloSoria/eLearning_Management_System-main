@@ -1,5 +1,8 @@
-<html lang="en">
+<?php
+session_start(); // Start the session
+?>
 
+<html lang="en">
 <body>
     <nav>
         <section>
@@ -29,7 +32,7 @@
             <span class="vertical_bar"></span>
             <div class="profile_dropdown">
                 <div class="dropbtn">
-                    <span>username (role_name)</span>
+                    <span><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] . ' (' . $_SESSION['user_type'] . ')'; ?></span>
                     <div class="droplisticon">
                         <span class="material-symbols-outlined">arrow_drop_down</span>
                     </div>
@@ -39,10 +42,9 @@
                         <a href="#">My Profile</a>
                         <a href="#">Settings</a>
                         <hr>
-                        <a href="#">Logout</a>
+                        <a href="../../plugins/process_Logout.php">Logout</a>
                     </div>
                 </div>
-
             </div>
         </section>
     </nav>
@@ -61,5 +63,4 @@
         });
     });
 </script>
-
 </html>

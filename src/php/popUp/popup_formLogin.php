@@ -4,16 +4,16 @@ $isInvalidCredentials = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
-    $user_id = htmlspecialchars($_POST['user_id']);
+    $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
     
     include_once '../../php/plugins/authLogin.php';
     
-    $result = authenticate($user_id, $password);
+    $result = authenticate($username, $password);
     
     if ($result === true) {
         // Credentials are valid, set session variable and redirect to welcome page
-        $_SESSION['username'] = $user_id;
+        $_SESSION['username'] = $username;
         header("Location: ../../php/pages/welcome.php");
         exit();
     } else {
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form class="form-login" method="POST">
             <div>
                 <p class="title">User ID:</p>
-                <input class="modal-inputbox" type="text" name="user_id" placeholder="Enter user id" title="School ID" required>
+                <input class="modal-inputbox" type="text" name="username" placeholder="Enter username" title="Username" required>
             </div>
             <div>
                 <p class="title">Password:</p>
