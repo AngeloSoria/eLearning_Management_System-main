@@ -27,13 +27,13 @@ function authenticate($username, $password) {
                 header("Location: /eLearning_Management_System-main/user_dashboard");
                 exit();
             } else {
-                echo "Account is inactive.";
+                $invalidCredentialsResult = "Account is inactive.";
             }
         } else {
-            echo "Invalid username or password.";
+            $invalidCredentialsResult = "Invalid username or password.";
         }
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        $invalidCredentialsResult = "Error: " . $e->getMessage();
     }
 }
 ?>

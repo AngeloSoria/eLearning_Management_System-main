@@ -1,6 +1,12 @@
 <?php
 session_start();
-$isInvalidCredentials = "";
+
+// Check if there's old session data.
+if (isset($_SESSION['user_id'])) {
+    header('Location: /eLearning_Management_System-main/user_dashboard');
+}
+
+$invalidCredentialsResult = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -10,16 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once '../plugins/authLogin.php';
 
     authenticate($username, $password);
-
-    // if ($result === true) {
-    //     // Credentials are valid, set session variable and redirect to welcome page
-    //     $_SESSION['username'] = $username;
-    //     header("Location: src/php/pages/welcome.php");
-    //     exit();
-    // } else {
-    //     // Set error message
-    //     $isInvalidCredentials = $result;
-    // }
 }
 ?>
 
@@ -55,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="LOGIN" class="btn-primary2 form-button btnLogin">
 
             <?php
-            if (!empty($isInvalidCredentials) && $isInvalidCredentials) {
+            if (!empty($invalidCredentialsResult) && $invalidCredentialsResult) {
                 echo '<p class="form-textResult">Invalid username or password. Please try again.</p>';
                 echo '<script>$(".popup").fadeIn(100);</script>';
             }
