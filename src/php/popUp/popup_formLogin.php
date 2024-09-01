@@ -6,20 +6,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
-    
-    include_once '../../php/plugins/authLogin.php';
-    
-    $result = authenticate($username, $password);
-    
-    if ($result === true) {
-        // Credentials are valid, set session variable and redirect to welcome page
-        $_SESSION['username'] = $username;
-        header("Location: ../../php/pages/welcome.php");
-        exit();
-    } else {
-        // Set error message
-        $isInvalidCredentials = $result;
-    }
+
+    include_once '../plugins/authLogin.php';
+
+    authenticate($username, $password);
+
+    // if ($result === true) {
+    //     // Credentials are valid, set session variable and redirect to welcome page
+    //     $_SESSION['username'] = $username;
+    //     header("Location: src/php/pages/welcome.php");
+    //     exit();
+    // } else {
+    //     // Set error message
+    //     $isInvalidCredentials = $result;
+    // }
 }
 ?>
 
@@ -53,14 +53,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="login_remember_me">Remember me</label>
             </div>
             <input type="submit" value="LOGIN" class="btn-primary2 form-button btnLogin">
-            
+
             <?php
-                if (!empty($isInvalidCredentials) && $isInvalidCredentials) {
-                    echo '<p class="form-textResult">Invalid username or password. Please try again.</p>';
-                    echo '<script>$(".popup").fadeIn(100);</script>';
-                }
+            if (!empty($isInvalidCredentials) && $isInvalidCredentials) {
+                echo '<p class="form-textResult">Invalid username or password. Please try again.</p>';
+                echo '<script>$(".popup").fadeIn(100);</script>';
+            }
             ?>
 
         </form>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const usernameField = document.querySelector('input[name="username"]');
+        const passwordField = document.querySelector('input[name="password"]');
+        const rememberMeCheckbox = document.querySelector('input[name="remember_me"]');
+
+        // Function to get a cookie value by name
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Check if there are saved values in cookies
+        const savedUsername = getCookie('savedUsername');
+        const savedPassword = getCookie('savedPassword');
+
+        if (savedUsername) {
+            usernameField.value = savedUsername;
+            rememberMeCheckbox.checked = true; // Automatically check if username is found
+        }
+        if (savedPassword) {
+            passwordField.value = savedPassword;
+        }
+
+        // Save form data in cookies when the form is submitted
+        document.querySelector('.form-login').addEventListener('submit', function(event) {
+            if (rememberMeCheckbox.checked) {
+                document.cookie = `savedUsername=${usernameField.value}; max-age=${30 * 24 * 60 * 60}; path=/`;
+                document.cookie = `savedPassword=${passwordField.value}; max-age=${30 * 24 * 60 * 60}; path=/`;
+            } else {
+                // Clear cookies if "Remember Me" is not checked
+                document.cookie = 'savedUsername=; max-age=0; path=/';
+                document.cookie = 'savedPassword=; max-age=0; path=/';
+            }
+        });
+    });
+</script>
