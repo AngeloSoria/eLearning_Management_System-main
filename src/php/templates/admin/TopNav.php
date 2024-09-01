@@ -12,7 +12,7 @@
                 </button>
                 
                 <a href="dashboard.php">
-                    <img src="../../../img/Secondary-Logo-2.png" alt="Logo">
+                    <img src="src/img/Secondary-Logo-2.png" alt="Logo">
                 </a>
                 <span></span>
             </div>
@@ -42,7 +42,7 @@
                         <a href="#">My Profile</a>
                         <a href="#">Settings</a>
                         <hr>
-                        <a href="../../plugins/process_Logout.php">Logout</a>
+                        <a href="src/php/plugins/process_Logout.php">Logout</a>
                     </div>
                 </div>
             </div>

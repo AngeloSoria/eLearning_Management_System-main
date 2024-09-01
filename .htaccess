@@ -1,3 +1,44 @@
+# HOW TO IMPLEMENT .htaccess file
+
+
+# Step 1: Enable mod_rewrite in XAMPP
+# Open the httpd.conf file located in the xampp\apache\conf\ directory (usually C:\xampp\apache\conf\ on Windows).
+# 
+# Search for this line:
+#     #LoadModule rewrite_module modules/mod_rewrite.so
+# 
+# Remove the # at the beginning to enable mod_rewrite, making it:
+#     LoadModule rewrite_module modules/mod_rewrite.so
+# 
+# Save the file and restart Apache from the XAMPP Control Panel.
+# 
+# Step 2: Create or Edit .htaccess
+# In your project folder (eLearning_Management_System-main), create a new file named .htaccess. If one already exists, open it for editing.
+# Add the following content to the .htaccess file:
+#     RewriteEngine On
+#     RewriteBase /eLearning_Management_System-main/
+# 
+#     # Rewrite rule for the home page
+#     RewriteRule ^$ src/php/pages/home.php [L]
+# 
+#     # Rewrite rules for other pages (you can add more)
+#     RewriteRule ^about$ src/php/pages/about.php [L]
+#     RewriteRule ^contact$ src/php/pages/contact.php [L]
+# 
+# Step 3: Allow .htaccess Overrides in XAMPP
+# Open the httpd.conf file again from the xampp\apache\conf\ directory.
+# Search for this block:
+#     <Directory "C:/xampp/htdocs">
+#         Options Indexes FollowSymLinks Includes ExecCGI
+#         AllowOverride None
+#         Require all granted
+#     </Directory>
+# 
+# Change AllowOverride None to AllowOverride All, like this:
+#     AllowOverride All
+
+
+
 RewriteEngine On
 RewriteBase /eLearning_Management_System-main/
 
@@ -5,4 +46,4 @@ RewriteBase /eLearning_Management_System-main/
 RewriteRule ^$ src/php/pages/home.php [L]
 
 # Rewrite rules for other pages
-RewriteRule ^dashboard$ src/php/pages/admin/dashboard.php [L]
+RewriteRule ^user_dashboard$ src/php/pages/user_dashboard.php [L]

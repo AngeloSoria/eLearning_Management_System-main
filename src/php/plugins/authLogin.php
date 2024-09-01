@@ -24,12 +24,8 @@ function authenticate($username, $password) {
                 $_SESSION['last_name'] = $user['last_name'];
                 
                 // Redirect based on user type
-                if ($user['user_type'] === 'SuperAdmin') {
-                    header("Location: src/php/pages/admin/dashboard.php");
-                } else {
-                    echo "Access Denied.";
-                }
-                exit;
+                header("Location: /eLearning_Management_System-main/user_dashboard");
+                exit();
             } else {
                 echo "Account is inactive.";
             }
