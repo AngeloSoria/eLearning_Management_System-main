@@ -1,5 +1,4 @@
 <?php
-require_once 'DBConnection.php'; // Include the database connection class
 function authenticate($username, $password) {
     require_once 'DBConnection.php'; // Include the database connection class
     $dbConnection = new DBConnection();
@@ -26,7 +25,7 @@ function authenticate($username, $password) {
                 
                 // Redirect based on user type
                 if ($user['user_type'] === 'SuperAdmin') {
-                    header("Location: ../pages/admin/dashboard.php");
+                    header("Location: src/php/pages/admin/dashboard.php");
                 } else {
                     echo "Access Denied.";
                 }

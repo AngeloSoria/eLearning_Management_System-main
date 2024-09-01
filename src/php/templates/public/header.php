@@ -24,9 +24,9 @@
     <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
 
     <link rel="icon" type="image/x-icon" href="../../img/icons/favicon.png">
-    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="src/css/normalize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="src/js/jquery-3.6.0.min.js"></script>
 
     <title>LMS | Unida Christian College - Cavite</title>
 </head>

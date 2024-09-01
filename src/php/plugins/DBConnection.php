@@ -1,6 +1,6 @@
 <?php
 class DBConnection {
-    private $port = "3307";
+    private $port = "3306";
     private $host = "localhost";
     private $db_name = "elmsproject_db"; 
     private $username = "root";

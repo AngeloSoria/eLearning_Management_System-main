@@ -1,6 +1,6 @@
-<?php
-session_start(); // Start the session
-?>
+<!-- <?php
+//session_start(); // Start the session
+?> -->
 
 <html lang="en">
 <body>

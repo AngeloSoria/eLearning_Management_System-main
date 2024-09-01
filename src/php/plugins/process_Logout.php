@@ -5,7 +5,7 @@
     session_destroy(); // Destroy the session
 
     // Redirect to the login page
-    header("Location: ../pages/home.php");
+    header("Location: /eLearning_Management_System-main/");
     exit();
 
 ?>

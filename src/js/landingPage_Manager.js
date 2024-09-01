@@ -21,7 +21,7 @@ let imgResources = [];
 
 // Fetch images from the server
 function loadImages() {
-    fetch('../plugins/fetch_images.php')
+    fetch('src/php/plugins/fetch_images.php')
         .then(response => response.json())
         .then(data => {
             imgResources = data;

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php include "../templates/public/header.php" ?>
-    <link rel="stylesheet" href="../../css/landingPage.css">
-    <link rel="stylesheet" href="../../css/landingPage-mobile.css">
+    <link rel="stylesheet" href="src/css/landingPage.css">
+    <link rel="stylesheet" href="src/css/landingPage-mobile.css">
 </head>
 
 <body data-bs-theme="light">
@@ -13,7 +12,7 @@
     <nav>
         <section class="nav-content">
             <a href="home.php">
-                <img class="logo" src="../../img/Secondary-Logo-2.png" alt="Unida Christian College Logo">
+                <img class="logo" src="src/img/Secondary-Logo-2.png" alt="Unida Christian College Logo">
             </a>
 
             <section class="nav-links">
@@ -74,6 +73,6 @@
     <!-- FOOTER -->
     <?php include "../templates/public/footer.php" ?>
 </body>
-<script src="../../js/landingPage_Manager.js"></script>
+<script src="src/js/landingPage_Manager.js"></script>
 
 </html>

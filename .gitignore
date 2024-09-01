@@ -1,0 +1,5 @@
+# meh
+.gitignore
+
+# ignore db file
+elmsproject_db.sql
