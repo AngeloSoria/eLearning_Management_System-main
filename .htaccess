@@ -1,6 +1,4 @@
 # HOW TO IMPLEMENT .htaccess file
-
-
 # Step 1: Enable mod_rewrite in XAMPP
 # Open the httpd.conf file located in the xampp\apache\conf\ directory (usually C:\xampp\apache\conf\ on Windows).
 # 
