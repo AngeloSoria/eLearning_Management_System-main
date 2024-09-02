@@ -1,4 +1,5 @@
 @import url(admin-main-mobile.css);
+@import url(main.css);
 
 body {
     /* font-family: var(--font-primary); */
@@ -251,7 +252,8 @@ nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
 
 /* content */
 .main_content {
-    background-color: white;
+    /* background-color: white; */
+    background-color: transparent;
     width: calc(100% - 325px);
     min-height: 90vh;
     max-height: 90vh;
@@ -261,4 +263,28 @@ nav section:nth-child(2) .profile_dropdown .droplist .content > a:hover {
     box-sizing: border-box;
     padding: 10px;
     margin-top: 10px;
+}
+
+.main_content .page_title {
+    color: var(--viridian);
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+.main_content .header_tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main_content .header_tools > *:nth-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 15px;
+}
+.main_content .header_tools > *:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 15px;
 }

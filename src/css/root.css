@@ -1,6 +1,29 @@
 @import url(fonts.css);
 
 :root {
+    /* Green */
+    --color-primary: rgb(2, 98, 53);
+    --color-primary-light: rgb(23, 153, 79);
+    --color-primary-dark: rgb(14, 112, 57);
+
+    /* Gold */
+    --color-secondary: #C8B12D;
+    --color-secondary-light: #E1B12C;
+    --color-secondary-dark: #9C8700;
+
+    /* System Defaults */
+    --color-warning: #fff200;
+    --color-warning-dark: #dfd300;
+
+    --color-error: #FF3F34;
+    --color-error-dark: #dd362d;
+    --color-error-disabled: rgba(221, 54, 45, 0.5);
+
+    /* Shadow */
+    --shadow-primary: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+:root {
     --vh: 100vh;
 
     --color-black100: #121a1a;
@@ -51,12 +74,6 @@
     --topnav-boxShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
     --font-primary : "Montserrat", Arial, Helvetica, sans-serif;
-}
-
-[data-bs-theme="light"] {
-    --color-primary: var(--color-white);
-    --color-secondary: var(--color-dark);
-    --color-tertiary: var(--color-black);
 }
 
 [data-bs-theme="dark"] {
