@@ -21,6 +21,7 @@
 
     /* Shadow */
     --shadow-primary: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --shadow-secondary: rgba(0, 0, 0, 0.1) 0 2px 4px;
 }
 
 :root {
@@ -70,6 +71,7 @@
 
     --modal-borderRadius: 6px;
     --modal-inputBox-borderRadius: 4px;
+    --modal-boxShadow: 0 2px 4px rgba(0, 0, 0, 0.10);
 
     --topnav-boxShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 

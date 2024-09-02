@@ -58,12 +58,45 @@ $active_page = "user_config"; // This is the active page that is referenced by s
                 </section>
             </section>
 
-            <div class="modal">
-                <div class="topTool">
-                    
-                </div>
-                <div class="modal-title">Title</div>
-            </div>
+            <br>
+
+            <section class="modal data_container">
+                <!-- A Table that shows user accounts -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAll">
+                                <!-- <label for="selectAll">Select All</label> -->
+                            </th>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>User Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User data will be populated here -->
+                        <tr>
+                            <td><input type="checkbox" id="user1"></td>
+                            <td>U001</td>
+                            <td>johndoe</td>
+                            <td>johndoe@example.com</td>
+                            <td>Admin</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="edit-button">
+                                    <i class="material-symbols-outlined">edit</i>
+                                </button>
+                                <button class="delete-button">
+                                    <i class="material-symbols-outlined">delete_forever</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+            </section>
 
         </section>
     </section>

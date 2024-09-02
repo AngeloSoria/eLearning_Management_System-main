@@ -40,21 +40,6 @@ body {
 }
 
 /* BUTTONS */
-.btn-primary-outline {
-    box-sizing: border-box;
-    padding: var(--btn-padding);
-    border-radius: var(--btn-border-radius);
-    font-family: var(--btn-font-family);
-    font-weight: var(--btn-font-weight);
-    font-size: var(--btn-font-size);
-    color: var(--color-white);
-    transition: var(--btn-transition);
-}
-
-.btn-primary-outline:hover {
-    outline: 0.75px solid var(--color-deep-blue);
-}
-
 .btn-primary {
     display: block;
     cursor: pointer;
@@ -121,15 +106,17 @@ body {
 /* Modals */
 
 .modal {
-    min-width: 200px;
+    min-width: 250px;
     min-height: 200px;
-    max-width: 800px;
+    /* max-width: 800px; */
     max-height: 90vh;
 
     background-color: var(--color-white);
     border-radius: var(--modal-borderRadius) 4px;
+    box-shadow: var(--modal-boxShadow);
     padding: 20px;
-    display: inline-block;
+    display: block;
+    box-sizing: border-box;
     /* margin: 5px; */
 }
 
@@ -205,6 +192,7 @@ form .form-button {
 .default-button {
     font-family: var(--font-primary);
     background-color: var(--color-white);
+    box-shadow: var(--shadow-secondary);
     font-weight: 500;
     font-size: 1rem;
     color: var(--color-black);
@@ -273,6 +261,8 @@ form .form-button {
     width: fit-content;
     padding: 5px 15px;
     border-radius: 6px;
+
+    box-shadow: var(--shadow-secondary);
 
     display: flex;
     justify-content: center;
