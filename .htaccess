@@ -35,13 +35,16 @@
 # Change AllowOverride None to AllowOverride All, like this:
 #     AllowOverride All
 
-ErrorDocument 404 src/php/err404.php
+Options +FollowSymLinks
 
 RewriteEngine On
 RewriteBase /eLearning_Management_System-main/
+
+ErrorDocument 404 http://localhost/eLearning_Management_System-main/src/php/pages/err404.php
 
 # Rewrite rule for the home page
 RewriteRule ^$ src/php/pages/home.php [L]
 
 # Rewrite rules for other pages
 RewriteRule ^user_dashboard$ src/php/pages/user_dashboard.php [L]
+RewriteRule ^error/404$ src/php/pages/err404.php [L]
