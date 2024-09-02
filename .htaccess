@@ -35,7 +35,7 @@
 # Change AllowOverride None to AllowOverride All, like this:
 #     AllowOverride All
 
-
+ErrorDocument 404 src/php/err404.php
 
 RewriteEngine On
 RewriteBase /eLearning_Management_System-main/
