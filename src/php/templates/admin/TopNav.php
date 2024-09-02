@@ -1,7 +1,3 @@
-<!-- <?php
-//session_start(); // Start the session
-?> -->
-
 <html lang="en">
 <body>
     <nav>

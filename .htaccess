@@ -40,14 +40,15 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /eLearning_Management_System-main/
 
-# Custom 404 ErrorDocument that triggers /error/404 URL
-ErrorDocument 404 /eLearning_Management_System-main/error/404
-
 # Rewrite rule for the home page
 RewriteRule ^$ src/php/pages/home.php [L]
 
 # Rewrite rules for other pages
 RewriteRule ^user_dashboard$ src/php/pages/user_dashboard.php [L]
+RewriteRule ^user_config$ src/php/pages/admin/user_configuration.php [L]
+
+# Custom 404 ErrorDocument that triggers /error/404 URL
+ErrorDocument 404 /eLearning_Management_System-main/error/404
 
 # Rewrite rule for custom 404 page
 RewriteRule ^error/404$ src/php/pages/err404.php [L]
@@ -56,4 +57,3 @@ RewriteRule ^error/404$ src/php/pages/err404.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ /eLearning_Management_System-main/error/404 [R=301,L]
-

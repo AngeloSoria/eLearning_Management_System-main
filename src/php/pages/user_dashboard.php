@@ -1,17 +1,20 @@
 <?php
 session_start();
 
+
 // Get role from URL parameter
 $user_type = $_SESSION['user_type']; // 'superadmin' or 'student'
 
+// echo "<script>alert('bloop: $user_type')</script>";
+
 if ($user_type === 'SuperAdmin') {
     // Load superadmin dashboard
-    include 'admin/dashboard.php';
+    include_once 'admin/dashboard.php';
 } elseif ($user_type === 'Student') {
     // Load student dashboard
-    include 'student/dashboard.php';
+    include_once 'student/dashboard.php';
 } else {
     // Redirect or show an error if role is unknown
-    header('Location: /eLearning_Management_System-main/error.php');
+    header('Location: /eLearning_Management_System-main/error/404');
     exit();
 }

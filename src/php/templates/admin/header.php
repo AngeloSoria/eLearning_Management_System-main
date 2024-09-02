@@ -1,4 +1,8 @@
-
+<?php
+    if(!isset($page_title)) {
+        $page_title = "UCC LMS Admin - null"; // Default page title
+    }
+?>
 
 <head>
     <meta charset="UTF-8">
