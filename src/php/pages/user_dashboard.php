@@ -1,6 +1,6 @@
 <?php
-session_start();
-
+include_once "../plugins/sessionManager.php";
+session_start_safely();
 
 // Get role from URL parameter
 $user_type = $_SESSION['user_type']; // 'superadmin' or 'student'

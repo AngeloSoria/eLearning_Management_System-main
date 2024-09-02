@@ -7,7 +7,7 @@
                     <span class="material-symbols-outlined">menu</span>
                 </button>
                 
-                <a href="dashboard.php">
+                <a href="user_dashboard">
                     <img src="src/img/Secondary-Logo-2.png" alt="Logo">
                 </a>
                 <span></span>

@@ -1,6 +1,9 @@
 <?php
 ob_start();
 
+include_once "../plugins/sessionManager.php";
+session_start_safely();
+
 if(!isset($_SESSION['user_id'])) {
     echo '<script>alert("error")</script>';
     header("Location: /eLearning_Management_System-main/");

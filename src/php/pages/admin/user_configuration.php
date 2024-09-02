@@ -1,8 +1,10 @@
 <?php
 ob_start();
 
-if(isset($_SESSION['user_id'])) {
-    echo '<script>alert("error")</script>';
+include_once "../../plugins/sessionManager.php";
+session_start_safely();
+
+if(!isset($_SESSION['user_id'])) {
     header("Location: /eLearning_Management_System-main/");
     exit();  // Exit script to avoid further execution.
 }
@@ -25,7 +27,7 @@ $active_page = "user_config"; // This is the active page that is referenced by s
 
         <section class="main_content">
             <!-- content here -->
-             <h2>User Config</h2>
+             <h3>User Config</h3>
         </section>
     </section>
 
